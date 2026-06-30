@@ -1,0 +1,14 @@
+# base-radio sdkconfig defaults.
+
+CONFIG_FREERTOS_HZ=1000
+
+# SO_REUSEADDR (used by the control-listener socket in main.c) requires
+# this lwIP option enabled.
+CONFIG_LWIP_SO_REUSE=y
+
+# This board associates with a real AP and should reconnect automatically
+# on drop -- handled explicitly in main.c's WIFI_EVENT_STA_DISCONNECTED
+# case too, but keeping the driver's own reconnect logic on as a backstop.
+CONFIG_ESP_WIFI_STA_DISCONNECTED_PM_ENABLE=n
+
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y

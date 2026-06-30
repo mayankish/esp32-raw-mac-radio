@@ -1,0 +1,11 @@
+build/
+sdkconfig
+sdkconfig.old
+.vscode/
+.idea/
+managed_components/
+dependencies.lock
+
+# Real Wi-Fi credentials -- never commit. Copy main/wifi_credentials.h.example
+# to main/wifi_credentials.h and fill in your network's details.
+main/wifi_credentials.h
