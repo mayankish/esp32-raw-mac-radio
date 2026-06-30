@@ -9,6 +9,8 @@ I've been building in my spare time. See
 [`DATA_CONTRACT.md`](DATA_CONTRACT.md) for the canonical wire format
 both images speak.
 
+![Architecture: bot-radio bridges STM32 UART to base-radio over raw 802.11 frames; base-radio bridges that link to UDP/mDNS for the dashboard and Android app](docs/esp32_bridge_architecture.png)
+
 ```
 [bot-radio]                                              [base-radio]
   UART1 <-> STM32                                          Wi-Fi STA -> AP -> IP, mDNS lidarbase.local
@@ -75,6 +77,7 @@ copies (`common/`, `bot-radio/main/`, `base-radio/main/`).
 ```
 esp32-raw-mac-radio/
 ├── README.md              (this file)
+├── docs/                  architecture diagram
 ├── common/                canonical data_contract + raw_link (see above)
 ├── bot-radio/              ESP-IDF project: UART<->raw-link bridge
 │   └── README.md
