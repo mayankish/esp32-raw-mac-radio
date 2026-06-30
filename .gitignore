@@ -1,0 +1,12 @@
+# Top-level ignore for anyone who clones this folder as one repo
+# containing both bot-radio/ and base-radio/. Each subfolder also has its
+# own .gitignore with the same rules, in case they're later split into
+# independent repos.
+build/
+sdkconfig
+sdkconfig.old
+.vscode/
+.idea/
+managed_components/
+dependencies.lock
+*/main/wifi_credentials.h
