@@ -1,0 +1,19 @@
+# bot-radio sdkconfig defaults. These seed `idf.py menuconfig` / a fresh
+# `idf.py build` (`idf.py build` runs `idf.py reconfigure` automatically
+# if no sdkconfig exists yet, merging this file in) -- they are NOT a
+# substitute for a full sdkconfig, just sane starting points.
+
+# 1000Hz tick to match the same tick rate used in stm32-lidar-firmware's
+# FreeRTOSConfig.h, mostly for readability when comparing timing/logs
+# across the two boards -- not load-bearing for correctness.
+CONFIG_FREERTOS_HZ=1000
+
+# This firmware never associates with an AP and has no use for the
+# default Wi-Fi power-save modem sleep -- disable it so raw RX isn't
+# delayed waiting for the radio to wake.
+CONFIG_ESP_WIFI_PS_DEFAULT=n
+
+# Default log level kept at INFO; the UART-CRC-drop and raw_link_send
+# failure warnings (see main.c) rely on WARN being enabled, which INFO
+# includes.
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
